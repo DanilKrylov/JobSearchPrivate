@@ -26,9 +26,12 @@ namespace JobSearch.Repositories.Repositories
 
         public List<Job> GetCompanyJobs(string email)
         {
-            var result =  _context.Jobs
-                .Include(c => c.Company)
-                .Where(c => c.Company.Email == email).ToList();
+            var result = _context.Companies
+               .Include(c => c.Jobs)
+               .FirstOrDefault(c => c.Email == email)
+               .Jobs;
+
+            //result.ForEach(c => c.Company.Jobs.Clear());
 
             return result;
         }
