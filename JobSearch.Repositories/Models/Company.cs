@@ -22,5 +22,7 @@ namespace JobSearch.Repositories.Models
         public string Description { get; set; }
 
         public bool IsBanned { get; set; } = false;
+
+        public List<Job> Jobs { get; set; } = new();
     }
 }

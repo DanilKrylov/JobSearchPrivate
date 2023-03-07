@@ -16,6 +16,8 @@ namespace JobSearch.Repositories
         {
             services.AddDbContext<AppContext>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
+            services.AddScoped<ISkillRepository, SkillRepository>();
         }
     }
 }

@@ -15,6 +15,18 @@ namespace JobSearch.Repositories.Interfaces
 
         List<Worker> GetWorkers();
 
-        bool LoginIsUnique();
+        User GetUser(string login);
+
+        void AddUser(User user);
+
+        void EditUser(User user);
+
+        void BanCompanyOrWorker(int userId);
+
+        void UnbanCompanyOrWorker(int userId);
+
+        bool EmailIsUnique(string email);
+
+        bool CanLogin(string email, string password);
     }
 }

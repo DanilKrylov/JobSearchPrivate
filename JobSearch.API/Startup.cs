@@ -1,3 +1,4 @@
+using JobSearch.Logic;
 using JobSearch.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,8 +29,9 @@ namespace JobSearch.API
         public void ConfigureServices(IServiceCollection services)
         {
             StoreServiceRegister.RegisterServices(services);
-            
-            
+            LogicServiceRegister.RegisterServices(services);
+
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

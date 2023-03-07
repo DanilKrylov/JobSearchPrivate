@@ -21,8 +21,11 @@ namespace JobSearch.Repositories.Models
         [StringLength(1000)]
         public string ResumeInfo { get; set; }
 
+        public int MainSkillSkillId { get; set; }
         public Skill MainSkill { get; set; }
 
         public bool IsBanned { get; set; } = false;
+
+        public List<JobFeadback> Feadbacks { get; set;} = new List<JobFeadback>();
     }
 }

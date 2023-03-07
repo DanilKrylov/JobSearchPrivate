@@ -20,5 +20,7 @@ namespace JobSearch.Repositories.Models
         public string Description { get; set; }
 
         public Company Company { get; set; }
+
+        public List<JobFeadback> Feadbacks { get; set; } = new();
     }
 }

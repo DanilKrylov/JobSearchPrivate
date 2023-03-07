@@ -28,6 +28,7 @@ namespace JobSearch.Repositories
 
         public AppContext()
         {
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
