@@ -48,7 +48,7 @@ namespace JobSearch.API.Controllers
             return Ok();
         }
 
-        [HttpPost("getJobs")]
+        [HttpGet("getJobs")]
         public IActionResult GetCompanyJobs()
         {
             return new JsonResult(_jobRepository.GetCompanyJobs(User.Identity.Name));

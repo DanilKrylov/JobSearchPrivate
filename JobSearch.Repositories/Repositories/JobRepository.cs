@@ -31,8 +31,6 @@ namespace JobSearch.Repositories.Repositories
                .FirstOrDefault(c => c.Email == email)
                .Jobs;
 
-            //result.ForEach(c => c.Company.Jobs.Clear());
-
             return result;
         }
 
