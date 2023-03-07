@@ -22,9 +22,7 @@ namespace JobSearch.Repositories
 
         public DbSet<Company> Companies { get; set; }
 
-        public DbSet<JobFeadback> JobFeadbacks { get; set; } /// <summary>
-        ///
-        /// </summary>
+        public DbSet<JobFeadback> JobFeadbacks { get; set; }
 
         public DbSet<FavoriteJob> FavoriteJobs { get; set; }
 
