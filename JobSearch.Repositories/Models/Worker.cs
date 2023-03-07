@@ -22,5 +22,7 @@ namespace JobSearch.Repositories.Models
         public string ResumeInfo { get; set; }
 
         public Skill MainSkill { get; set; }
+
+        public bool IsBanned { get; set; } = false;
     }
 }

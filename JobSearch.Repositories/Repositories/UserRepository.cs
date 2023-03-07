@@ -1,5 +1,6 @@
 ﻿using JobSearch.Repositories.Interfaces;
 using JobSearch.Repositories.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,22 +20,13 @@ namespace JobSearch.Repositories.Repositories
 
         public List<Admin> GetAdmins()
         {
-            var admin = new Admin()
-            {
-                Email = "test"
-            };
-
-
-            _context.Admins.Add(admin);
-            _context.SaveChanges();
-
-
             return _context.Admins.ToList();
         }
 
-        public List<Company> GetCompanies()
+        public List<Company> GetCompanies(int jobId)
         {
-            throw new NotImplementedException();
+            var job = _context.Jobs.Include(job => job.Company)
+                .FirstOrDefault(job => job.JobId == jobId);
         }
 
         public List<Worker> GetWorkers()

@@ -19,7 +19,8 @@ namespace JobSearch.Repositories.Models
         public string Address { get; set; }
 
         [StringLength(1000)]
-
         public string Description { get; set; }
+
+        public bool IsBanned { get; set; } = false;
     }
 }
