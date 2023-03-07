@@ -26,5 +26,10 @@ namespace JobSearch.Repositories.Repositories
         {
             return _context.Skills.ToList();
         }
+
+        public Skill GetSkill(int id)
+        {
+            return _context.Skills.FirstOrDefault(c => c.SkillId == id);
+        }
     }
 }

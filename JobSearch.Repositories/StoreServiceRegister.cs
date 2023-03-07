@@ -18,6 +18,9 @@ namespace JobSearch.Repositories
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ISkillRepository, SkillRepository>();
+            services.AddScoped<IWorkerRepository, WorkerRepository>();
+            services.AddScoped<IJobRepository, JobRepository>();
+            services.AddScoped<IFeadbackRepository, FeadbackRepository>();
         }
     }
 }

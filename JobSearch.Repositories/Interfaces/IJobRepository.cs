@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 
 namespace JobSearch.Repositories.Interfaces
 {
-    public interface ISkillRepository
+    public interface IJobRepository
     {
-        List<Skill> GetAll();
+        void AddJob(Job job);
 
-        void AddSkill(Skill skill);
+        void RemoveJob(int id);
 
-        Skill GetSkill(int id);
+        List<Job> GetJobs();
+
+        List<Job> GetCompanyJobs(string email);
+
+        Job GetJob(int id);
     }
 }
