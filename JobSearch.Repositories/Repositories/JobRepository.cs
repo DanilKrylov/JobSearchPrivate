@@ -26,20 +26,29 @@ namespace JobSearch.Repositories.Repositories
 
         public List<Job> GetCompanyJobs(string email)
         {
-            return _context.Companies
-                .Include(c => c.Jobs)
-                .FirstOrDefault(c => c.Email == email)
-                .Jobs;
+            var result =  _context.Jobs
+                .Include(c => c.Company)
+                .Where(c => c.Company.Email == email).ToList();
+
+            return result;
         }
 
         public Job GetJob(int id)
         {
-            return _context.Jobs.FirstOrDefault(c => c.JobId == id);
+            return _context.Jobs
+                .Include(c => c.MainSkill)
+                .Include(c => c.Company)
+                .Include(c => c.Feadbacks)
+                    .ThenInclude(c => c.Worker)
+                .FirstOrDefault(c => c.JobId == id);
         }
 
         public List<Job> GetJobs()
         {
-            return _context.Jobs.ToList();
+            return _context.Jobs
+                .Include(c => c.MainSkill)
+                .Include(c => c.Company)
+                .ToList();
         }
 
         public void RemoveJob(int id)

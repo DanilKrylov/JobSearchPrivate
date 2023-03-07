@@ -8,7 +8,7 @@ namespace JobSearch.API.Controllers
 {
     [ApiController]
     [Route("api/companyAction")]
-    [Authorize(Roles = "Company")]
+    [Authorize]
     public class CompanyActionsController : Controller
     {
         private readonly IJobRepository _jobRepository;

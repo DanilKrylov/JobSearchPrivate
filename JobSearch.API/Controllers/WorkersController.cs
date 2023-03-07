@@ -5,11 +5,11 @@ namespace JobSearch.API.Controllers
 {
     [ApiController]
     [Route("api/workers")]
-    public class WorkersRepository : Controller
+    public class WorkersController : Controller
     {
         private readonly IWorkerRepository _workerRepository;
 
-        public WorkersRepository(IWorkerRepository workerRepository)
+        public WorkersController(IWorkerRepository workerRepository)
         {
             _workerRepository = workerRepository;
         }
