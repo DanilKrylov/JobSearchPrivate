@@ -17,9 +17,9 @@ namespace JobSearch.API.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login(string login, string password)
+        public IActionResult Login(LoginViewModel viewModel)
         {
-            return new JsonResult(_authService.Login(login, password));
+            return new JsonResult(_authService.Login(viewModel.Login, viewModel.Password));
         }
 
         [HttpPost("workerReg")]
