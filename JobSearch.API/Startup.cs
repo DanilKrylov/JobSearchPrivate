@@ -100,6 +100,7 @@ namespace JobSearch.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "JobSearch.API v1"));
             }
 
+            app.UseCors("_myAllowSpecificOrigins");
             app.UseHttpsRedirection();
 
             app.UseRouting();
