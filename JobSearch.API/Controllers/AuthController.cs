@@ -1,6 +1,7 @@
 ﻿using JobSearch.API.ViewModels;
 using JobSearch.Logic.Interfaces;
 using JobSearch.Repositories.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobSearch.API.Controllers
@@ -31,6 +32,12 @@ namespace JobSearch.API.Controllers
         public IActionResult CompanyRegister(CompanyRegisterViewModel company)
         {
             return new JsonResult(_authService.CompanyRegister(company.ToModel()));
+        }
+
+        [Authorize]
+        public IActionResult Check()
+        {
+            return Ok();
         }
     }
 }
