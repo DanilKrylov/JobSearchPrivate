@@ -35,6 +35,7 @@ namespace JobSearch.API.Controllers
         }
 
         [Authorize]
+        [HttpPost("checkSignIn")]
         public IActionResult Check()
         {
             return Ok();
