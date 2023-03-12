@@ -33,7 +33,7 @@ namespace JobSearch.Repositories.Repositories
                 worker.IsBanned = true;
 
             if (company is not null)
-                worker.IsBanned = true;
+                company.IsBanned = true;
 
             _context.SaveChanges();
         }
@@ -85,7 +85,7 @@ namespace JobSearch.Repositories.Repositories
                 worker.IsBanned = false;
 
             if (company is not null)
-                worker.IsBanned = false;
+                company.IsBanned = false;
 
             _context.SaveChanges();
         }
