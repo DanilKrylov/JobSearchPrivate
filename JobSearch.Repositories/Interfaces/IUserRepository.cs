@@ -21,9 +21,9 @@ namespace JobSearch.Repositories.Interfaces
 
         void EditUser(User user);
 
-        void BanCompanyOrWorker(int userId);
+        void BanCompanyOrWorker(string email);
 
-        void UnbanCompanyOrWorker(int userId);
+        void UnbanCompanyOrWorker(string email);
 
         bool EmailIsUnique(string email);
 

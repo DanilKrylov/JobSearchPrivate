@@ -21,8 +21,6 @@ namespace JobSearch.Repositories.Models
         [StringLength(1000)]
         public string Description { get; set; }
 
-        public bool IsBanned { get; set; } = false;
-
         public List<Job> Jobs { get; set; } = new();
     }
 }

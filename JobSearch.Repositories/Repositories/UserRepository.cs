@@ -24,10 +24,10 @@ namespace JobSearch.Repositories.Repositories
             _context.SaveChanges();
         }
 
-        public void BanCompanyOrWorker(int userId)
+        public void BanCompanyOrWorker(string email)
         {
-            var worker = _context.Workers.FirstOrDefault(c => c.UserId == userId);
-            var company = _context.Companies.FirstOrDefault(c => c.UserId == userId);
+            var worker = _context.Workers.FirstOrDefault(c => c.Email == email);
+            var company = _context.Companies.FirstOrDefault(c => c.Email == email);
 
             if (worker is not null)
                 worker.IsBanned = true;
@@ -76,10 +76,10 @@ namespace JobSearch.Repositories.Repositories
             return _context.Workers.ToList();
         }
 
-        public void UnbanCompanyOrWorker(int userId)
+        public void UnbanCompanyOrWorker(string email)
         {
-            var worker = _context.Workers.FirstOrDefault(c => c.UserId == userId);
-            var company = _context.Companies.FirstOrDefault(c => c.UserId == userId);
+            var worker = _context.Workers.FirstOrDefault(c => c.Email == email);
+            var company = _context.Companies.FirstOrDefault(c => c.Email == email);
 
             if (worker is not null)
                 worker.IsBanned = false;
