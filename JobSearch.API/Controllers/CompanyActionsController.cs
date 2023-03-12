@@ -15,13 +15,21 @@ namespace JobSearch.API.Controllers
         private readonly IUserRepository _userRepository;
         private readonly ISkillRepository _skillRepository;
         private readonly IFeadbackRepository _feadbackRepository;
+        private readonly ICompanyRepository _companyRepository;
 
-        public CompanyActionsController(IJobRepository jobRepository, IUserRepository userRepository, ISkillRepository skillRepository, IFeadbackRepository feadbackRepository)
+        public CompanyActionsController(IJobRepository jobRepository, IUserRepository userRepository, ISkillRepository skillRepository, IFeadbackRepository feadbackRepository, ICompanyRepository companyRepository)
         {
             _jobRepository = jobRepository;
             _userRepository = userRepository;
             _skillRepository = skillRepository;
             _feadbackRepository = feadbackRepository;
+            _companyRepository = companyRepository;
+        }
+
+        [HttpGet("companyInfo")]
+        public  IActionResult GetCompanyInfo()
+        {
+            return new JsonResult(_companyRepository.Get(User.Identity.Name));
         }
 
         [HttpPost("addJob")]
