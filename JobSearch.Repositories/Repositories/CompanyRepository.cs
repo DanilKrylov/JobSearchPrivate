@@ -35,7 +35,7 @@ namespace JobSearch.Repositories.Repositories
 
         public List<Company> GetAll()
         {
-            return _context.Companies.ToList();
+            return _context.Companies.Include(x => x.Jobs).ToList();
         }
 
         public void Update(string email, string name, string description, string address)
