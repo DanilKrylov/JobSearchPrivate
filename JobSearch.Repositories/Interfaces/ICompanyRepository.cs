@@ -12,5 +12,7 @@ namespace JobSearch.Repositories.Interfaces
         List<Company> GetAll();
 
         Company Get(int id);
+
+        Company Get(string email);
     }
 }

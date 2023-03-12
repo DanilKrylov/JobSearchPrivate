@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JobSearch.Repositories
 {
-    internal class AppContext : DbContext
+    public class AppContext : DbContext
     {
         public DbSet<Job> Jobs { get; set; }
 

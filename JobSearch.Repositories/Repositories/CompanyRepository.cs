@@ -25,6 +25,14 @@ namespace JobSearch.Repositories.Repositories
                 .FirstOrDefault(c => c.UserId == id);
         }
 
+        public Company Get(string email)
+        {
+            return _context.Companies
+                .Include(c => c.Jobs)
+                .ThenInclude(c => c.Feadbacks)
+                .FirstOrDefault(c => c.Email == email);
+        }
+
         public List<Company> GetAll()
         {
             return _context.Companies.ToList();
