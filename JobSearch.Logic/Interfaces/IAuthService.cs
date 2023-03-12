@@ -15,5 +15,7 @@ namespace JobSearch.Logic.Interfaces
         public AuthorizeOperationResult CompanyRegister(Company company);
 
         public AuthorizeOperationResult WorkerRegister(Worker company);
+
+        public bool IsBanned(string email);
     }
 }

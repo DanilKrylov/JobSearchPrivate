@@ -38,6 +38,9 @@ namespace JobSearch.API.Controllers
         [HttpPost("checkSignIn")]
         public IActionResult Check()
         {
+            if (_authService.IsBanned(User.Identity.Name))
+                return StatusCode(401);
+
             return Ok();
         }
     }

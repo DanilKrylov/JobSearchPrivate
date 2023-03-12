@@ -12,6 +12,8 @@ namespace JobSearch.Repositories.Models
         [Key]
         public int UserId { get; set; }
 
+        public bool IsBanned { get; set; } = false;
+
         public string Email { get; set; }
 
         public string Password { get; set; }

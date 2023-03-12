@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace JobSearch.Logic.Services
 {
@@ -38,6 +37,15 @@ namespace JobSearch.Logic.Services
             return new AuthorizeOperationResult(true, token);
         }
 
+        public bool IsBanned(string email)
+        {
+            var user = _userRepository.GetUser(email);
+            if (user is null)
+                throw new ArgumentException();
+
+            return user.IsBanned;
+        }
+
         public AuthorizeOperationResult Login(string login, string password)
         {
             if (!_userRepository.CanLogin(login, password))
@@ -47,6 +55,13 @@ namespace JobSearch.Logic.Services
                 return res;
             }
 
+            var user = _userRepository.GetUser(login);
+            if (user.IsBanned)
+            {
+                var result = new AuthorizeOperationResult(false);
+                result.AddError("password", "your account is banned");
+                return result;
+            }
 
             var token = _jwtService.CreateToken(_userRepository.GetUser(login));
             return new AuthorizeOperationResult(true, token);
