@@ -14,5 +14,7 @@ namespace JobSearch.Repositories.Interfaces
         Company Get(int id);
 
         Company Get(string email);
+
+        void Update(string email, string name, string description, string address);
     }
 }

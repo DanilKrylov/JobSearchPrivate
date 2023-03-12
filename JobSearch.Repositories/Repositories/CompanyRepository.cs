@@ -37,5 +37,15 @@ namespace JobSearch.Repositories.Repositories
         {
             return _context.Companies.ToList();
         }
+
+        public void Update(string email, string name, string description, string address)
+        {
+            var company = Get(email);
+            company.Address = address;
+            company.Description = description;
+            company.CompanyName = name;
+            _context.Companies.Update(company);
+            _context.SaveChanges();
+        }
     }
 }

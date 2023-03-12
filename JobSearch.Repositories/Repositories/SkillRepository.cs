@@ -22,6 +22,12 @@ namespace JobSearch.Repositories.Repositories
             _context.SaveChanges();
         }
 
+        public void DeleteSkill(int id)
+        {
+            _context.Skills.Remove(GetSkill(id));
+            _context.SaveChanges();
+        }
+
         public List<Skill> GetAll()
         {
             return _context.Skills.ToList();

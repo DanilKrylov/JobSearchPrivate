@@ -1,4 +1,5 @@
-﻿using JobSearch.Repositories.Interfaces;
+﻿using JobSearch.API.ViewModels;
+using JobSearch.Repositories.Interfaces;
 using JobSearch.Repositories.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -68,6 +69,13 @@ namespace JobSearch.API.Controllers
             var feadback = _feadbackRepository.GetFeadback(feadbackId);
             feadback.Аccepted = isAccepted;
             _feadbackRepository.UpdateFeadback(feadback);
+            return Ok();
+        }
+
+        [HttpPost("updateCompany")]
+        public IActionResult UpdateCompany(UpdateCompanyViewModel viewModel)
+        {
+            _companyRepository.Update(User.Identity.Name, viewModel.CompanyName, viewModel.Description, viewModel.Address);
             return Ok();
         }
     }

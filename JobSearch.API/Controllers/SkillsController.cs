@@ -27,5 +27,12 @@ namespace JobSearch.API.Controllers
             _skillRepository.AddSkill(skill);
             return Ok();
         }
+
+        [HttpPost("remove")]
+        public IActionResult Remove(int skillId)
+        {
+            _skillRepository.DeleteSkill(skillId);
+            return Ok();
+        }
     }
 }

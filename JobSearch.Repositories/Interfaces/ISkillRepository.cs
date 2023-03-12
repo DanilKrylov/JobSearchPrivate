@@ -14,5 +14,7 @@ namespace JobSearch.Repositories.Interfaces
         void AddSkill(Skill skill);
 
         Skill GetSkill(int id);
+
+        void DeleteSkill(int id);
     }
 }
