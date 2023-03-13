@@ -52,6 +52,19 @@ namespace JobSearch.Repositories.Repositories
                 .ToList();
         }
 
+
+        public List<Job> GetFavoriteJobs(string email)
+        {
+            var user = _context.Users.First(c => c.Email == email);
+            return _context.FavoriteJobs
+                .Include(c => c.Job)
+                    .ThenInclude(c => c.MainSkill)
+                .Include(c => c.Job)
+                    .ThenInclude(c => c.Company)
+                .Where(c => c.WorkerUserId == user.UserId)
+                .Select(c => c.Job).ToList();
+        }
+
         public void RemoveJob(int id)
         {
             _context.Jobs.Remove(GetJob(id));

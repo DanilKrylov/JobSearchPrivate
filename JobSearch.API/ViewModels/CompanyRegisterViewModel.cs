@@ -19,6 +19,8 @@ namespace JobSearch.API.ViewModels
 
         public string Address { get; set; }
 
+        [Required(ErrorMessage = "Should be not required")]
+
         public string Description { get; set; }
 
         public Company ToModel()

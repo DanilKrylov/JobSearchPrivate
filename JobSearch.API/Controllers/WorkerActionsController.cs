@@ -13,16 +13,18 @@ namespace JobSearch.API.Controllers
         private readonly IUserRepository _userRepository;
         private readonly IFeadbackRepository _feadBackRepository;
         private readonly IJobRepository _jobRepository;
+        private readonly IFavoriteRepository _favoriteRepository;
 
-        public WorkerActionsController(IUserRepository userRepository, IFeadbackRepository feadbackRepository, IJobRepository jobRepository)
+        public WorkerActionsController(IUserRepository userRepository, IFeadbackRepository feadbackRepository, IJobRepository jobRepository, IFavoriteRepository favoriteRepository)
         {
             _userRepository = userRepository;
             _feadBackRepository = feadbackRepository;
             _jobRepository = jobRepository;
+            _favoriteRepository = favoriteRepository;
         }
 
         [HttpPost("giveFeadback")]
-        public ActionResult GiveFeadback(int jobId, string workerComment)
+        public IActionResult GiveFeadback(int jobId, string workerComment)
         {
             var worker = (Worker)_userRepository.GetUser(User.Identity.Name);
             var job = _jobRepository.GetJob(jobId);
@@ -39,16 +41,36 @@ namespace JobSearch.API.Controllers
         }
 
         [HttpPost("removeFeadback")]
-        public ActionResult RemoveFeadback(int feadbackId)
+        public IActionResult RemoveFeadback(int feadbackId)
         {
             _feadBackRepository.RemoveFeadback(feadbackId); 
             return Ok();
         }
 
         [HttpPost("getWorkerFeadbacks")]
-        public ActionResult GetUserFeadbacks()
+        public IActionResult GetUserFeadbacks()
         {
             return new JsonResult(_feadBackRepository.GetUserFeadbacks(User.Identity.Name));
+        }
+
+        [HttpPost("addToFavorite")]
+        public IActionResult AddToFavorite(int jobId)
+        {
+            _favoriteRepository.Add(User.Identity.Name, jobId);
+            return Ok();
+        }
+
+        [HttpPost("removeFromFavorite")]
+        public IActionResult RemoveFromFavorite(int jobId)
+        {
+            _favoriteRepository.Remove(User.Identity.Name, jobId);
+            return Ok();
+        }
+
+        [HttpPost("getFavoriteJobs")]
+        public IActionResult GetFavorites()
+        {
+            return Ok(_favoriteRepository.GetFavorites(User.Identity.Name));
         }
     }
 }
