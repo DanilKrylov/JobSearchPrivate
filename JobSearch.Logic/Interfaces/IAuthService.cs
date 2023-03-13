@@ -12,6 +12,8 @@ namespace JobSearch.Logic.Interfaces
     {
         public AuthorizeOperationResult Login(string username, string password);
 
+        public AuthorizeOperationResult Login(string username);
+
         public AuthorizeOperationResult CompanyRegister(Company company);
 
         public AuthorizeOperationResult WorkerRegister(Worker company);

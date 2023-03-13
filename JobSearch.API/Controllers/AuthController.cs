@@ -22,6 +22,12 @@ namespace JobSearch.API.Controllers
             return new JsonResult(_authService.Login(viewModel.Login, viewModel.Password));
         }
 
+        [HttpPost("googleLogin")]
+        public IActionResult GoogleLogin(string email)
+        {
+            return new JsonResult(_authService.Login(email));
+        }
+
         [HttpPost("workerReg")]
         public IActionResult WorkerRegister(WorkerRegisterViewModel worker)
         {
@@ -30,6 +36,12 @@ namespace JobSearch.API.Controllers
 
         [HttpPost("companyReg")]
         public IActionResult CompanyRegister(CompanyRegisterViewModel company)
+        {
+            return new JsonResult(_authService.CompanyRegister(company.ToModel()));
+        }
+
+        [HttpPost("companyGoogleReg")]
+        public IActionResult CompanyGoogleRegister(CompanyGoogleRegisterViewModel company)
         {
             return new JsonResult(_authService.CompanyRegister(company.ToModel()));
         }

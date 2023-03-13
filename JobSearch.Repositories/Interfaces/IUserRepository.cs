@@ -28,5 +28,7 @@ namespace JobSearch.Repositories.Interfaces
         bool EmailIsUnique(string email);
 
         bool CanLogin(string email, string password);
+
+        bool CanGoogleLogin(string email);
     }
 }

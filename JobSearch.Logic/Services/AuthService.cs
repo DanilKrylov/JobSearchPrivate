@@ -46,6 +46,27 @@ namespace JobSearch.Logic.Services
             return user.IsBanned;
         }
 
+        public AuthorizeOperationResult Login(string login)
+        {
+            if (!_userRepository.CanGoogleLogin(login))
+            {
+                var res = new AuthorizeOperationResult(false);
+                res.AddError("email", "is not registered with this email");
+                return res;
+            }
+
+            var user = _userRepository.GetUser(login);
+            if (user.IsBanned)
+            {
+                var result = new AuthorizeOperationResult(false);
+                result.AddError("banned", "your account is banned");
+                return result;
+            }
+
+            var token = _jwtService.CreateToken(_userRepository.GetUser(login));
+            return new AuthorizeOperationResult(true, token);
+        }
+
         public AuthorizeOperationResult Login(string login, string password)
         {
             if (!_userRepository.CanLogin(login, password))

@@ -45,6 +45,13 @@ namespace JobSearch.Repositories.Repositories
             return user is not null && user.Password == password;
         }
 
+        public bool CanGoogleLogin(string email)
+        {
+            var user = _context.Users.FirstOrDefault(c => c.Email == email);
+
+            return user is not null;
+        }
+
         public void EditUser(User user)
         {
             _context.Users.Update(user);
