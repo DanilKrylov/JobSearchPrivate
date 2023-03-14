@@ -41,6 +41,7 @@ namespace JobSearch.Repositories.Repositories
                 .Include(c => c.Company)
                 .Include(c => c.Feadbacks)
                     .ThenInclude(c => c.Worker)
+                    .ThenInclude(c => c.MainSkill)
                 .FirstOrDefault(c => c.JobId == id);
         }
 
