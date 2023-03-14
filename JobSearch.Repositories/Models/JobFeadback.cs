@@ -18,6 +18,6 @@ namespace JobSearch.Repositories.Models
 
         public string WorkerComment { get; set; }
 
-        public bool? Аccepted { get; set; }
+        public bool? Accepted { get; set; }
     }
 }

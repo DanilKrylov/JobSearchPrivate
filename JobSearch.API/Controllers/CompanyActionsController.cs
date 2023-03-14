@@ -67,7 +67,7 @@ namespace JobSearch.API.Controllers
         public IActionResult SetFeadbackResult(int feadbackId, bool isAccepted)
         {
             var feadback = _feadbackRepository.GetFeadback(feadbackId);
-            feadback.Аccepted = isAccepted;
+            feadback.Accepted = isAccepted;
             _feadbackRepository.UpdateFeadback(feadback);
             return Ok();
         }
