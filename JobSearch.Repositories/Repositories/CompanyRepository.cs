@@ -30,6 +30,8 @@ namespace JobSearch.Repositories.Repositories
             return _context.Companies
                 .Include(c => c.Jobs)
                 .ThenInclude(c => c.Feadbacks)
+                .Include(c => c.Jobs)
+                .ThenInclude(c => c.MainSkill)
                 .FirstOrDefault(c => c.Email == email);
         }
 
