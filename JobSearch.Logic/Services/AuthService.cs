@@ -41,7 +41,7 @@ namespace JobSearch.Logic.Services
         {
             var user = _userRepository.GetUser(email);
             if (user is null)
-                throw new ArgumentException();
+               return false;
 
             return user.IsBanned;
         }
