@@ -24,6 +24,10 @@ namespace JobSearch.Repositories.Models
         public int MainSkillSkillId { get; set; }
         public Skill MainSkill { get; set; }
 
+        public FileInfo Avatar { get; set; }
+
+        public FileInfo CV { get; set; }
+
         public List<JobFeadback> Feadbacks { get; set;} = new List<JobFeadback>();
     }
 }

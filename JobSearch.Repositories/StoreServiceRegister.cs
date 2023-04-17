@@ -22,6 +22,7 @@ namespace JobSearch.Repositories
             services.AddScoped<IJobRepository, JobRepository>();
             services.AddScoped<IFeadbackRepository, FeadbackRepository>();
             services.AddScoped<IFavoriteRepository, FavoriteRepository>();
+            services.AddScoped<IFileInfoRepository, FileInfoRepository>();
         }
     }
 }

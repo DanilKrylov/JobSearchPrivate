@@ -8,10 +8,12 @@ namespace JobSearch.API.Controllers
     public class WorkersController : Controller
     {
         private readonly IWorkerRepository _workerRepository;
+        private readonly IFileInfoRepository _fileInfoRepository;
 
-        public WorkersController(IWorkerRepository workerRepository)
+        public WorkersController(IWorkerRepository workerRepository, IFileInfoRepository fileInfoRepository)
         {
             _workerRepository = workerRepository;
+            _fileInfoRepository = fileInfoRepository;
         }
 
         [HttpGet("get")]
@@ -24,6 +26,12 @@ namespace JobSearch.API.Controllers
         public IActionResult Get(int id)
         {
             return new JsonResult(_workerRepository.GetWorker(id));
+        }
+
+        [HttpGet("getCV/{workerEmail}")]
+        public IActionResult GetCV(string workerEmail)
+        {
+            return Ok(_fileInfoRepository.GetCV(workerEmail));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using JobSearch.Repositories.Interfaces;
 using JobSearch.Repositories.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobSearch.API.Controllers
@@ -14,13 +15,15 @@ namespace JobSearch.API.Controllers
         private readonly IFeadbackRepository _feadBackRepository;
         private readonly IJobRepository _jobRepository;
         private readonly IFavoriteRepository _favoriteRepository;
+        private readonly IFileInfoRepository _fileInfoRepository;
 
-        public WorkerActionsController(IUserRepository userRepository, IFeadbackRepository feadbackRepository, IJobRepository jobRepository, IFavoriteRepository favoriteRepository)
+        public WorkerActionsController(IUserRepository userRepository, IFeadbackRepository feadbackRepository, IJobRepository jobRepository, IFavoriteRepository favoriteRepository, IFileInfoRepository fileInfoRepository)
         {
             _userRepository = userRepository;
             _feadBackRepository = feadbackRepository;
             _jobRepository = jobRepository;
             _favoriteRepository = favoriteRepository;
+            _fileInfoRepository = fileInfoRepository;
         }
 
         [HttpPost("giveFeadback")]
@@ -71,6 +74,22 @@ namespace JobSearch.API.Controllers
         public IActionResult GetFavorites()
         {
             return Ok(_favoriteRepository.GetFavorites(User.Identity.Name));
+        }
+
+        [HttpPost("setCV")]
+        public IActionResult SetCV(IFormFile formFile)
+        {
+            var login = User.Identity.Name;
+            _fileInfoRepository.SetCV(formFile, login);
+            return Ok();
+        }
+
+        [HttpPost("setAvatar")]
+        public IActionResult SetAvatar(IFormFile formFile)
+        {
+            var login = User.Identity.Name;
+            _fileInfoRepository.SetAvatar(formFile, login);
+            return Ok();
         }
     }
 }
