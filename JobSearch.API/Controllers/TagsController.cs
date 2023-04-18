@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace JobSearch.API.Controllers
 {
     [ApiController]
-    [Route("api/skills")]
+    [Route("api/tags")]
     public class TagsController : Controller
     {
         private readonly ISkillRepository _skillRepository;
