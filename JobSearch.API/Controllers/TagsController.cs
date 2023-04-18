@@ -6,10 +6,10 @@ namespace JobSearch.API.Controllers
 {
     [ApiController]
     [Route("api/skills")]
-    public class SkillsController : Controller
+    public class TagsController : Controller
     {
         private readonly ISkillRepository _skillRepository;
-        public SkillsController(ISkillRepository skillRepository)
+        public TagsController(ISkillRepository skillRepository)
         {
             _skillRepository = skillRepository;
         }
@@ -21,9 +21,9 @@ namespace JobSearch.API.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(string skillName)
+        public IActionResult Add(string tagName)
         {
-            var skill = new Skill() { SkillName = skillName };
+            var skill = new Tag() { TagName = tagName };
             _skillRepository.AddSkill(skill);
             return Ok();
         }

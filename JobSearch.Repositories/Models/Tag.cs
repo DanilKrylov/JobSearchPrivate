@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace JobSearch.Repositories.Models
 {
-    public class Skill
+    public class Tag
     {
         [Key]
-        public int SkillId { get; set; }
+        public int TagId { get; set; }
 
-        public string SkillName { get; set; }
+        public string TagName { get; set; }
     }
 }

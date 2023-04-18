@@ -21,8 +21,8 @@ namespace JobSearch.Repositories.Models
         [StringLength(1000)]
         public string ResumeInfo { get; set; }
 
-        public int MainSkillSkillId { get; set; }
-        public Skill MainSkill { get; set; }
+        public int TagId { get; set; }
+        public Tag Tag { get; set; }
 
         public FileInfo Avatar { get; set; }
 

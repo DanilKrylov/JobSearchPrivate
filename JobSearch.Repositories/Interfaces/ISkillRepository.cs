@@ -9,11 +9,11 @@ namespace JobSearch.Repositories.Interfaces
 {
     public interface ISkillRepository
     {
-        List<Skill> GetAll();
+        List<Tag> GetAll();
 
-        void AddSkill(Skill skill);
+        void AddSkill(Tag skill);
 
-        Skill GetSkill(int id);
+        Tag GetSkill(int id);
 
         void DeleteSkill(int id);
     }

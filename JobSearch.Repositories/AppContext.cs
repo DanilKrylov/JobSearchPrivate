@@ -12,7 +12,7 @@ namespace JobSearch.Repositories
     {
         public DbSet<Job> Jobs { get; set; }
 
-        public DbSet<Skill> Skills { get; set; }
+        public DbSet<Tag> Skills { get; set; }
 
         public DbSet<User> Users { get; set; }
 

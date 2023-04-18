@@ -16,7 +16,7 @@ namespace JobSearch.Repositories.Repositories
             _context = context;
         }
 
-        public void AddSkill(Skill skill)
+        public void AddSkill(Tag skill)
         {
             _context.Skills.Add(skill);
             _context.SaveChanges();
@@ -28,14 +28,14 @@ namespace JobSearch.Repositories.Repositories
             _context.SaveChanges();
         }
 
-        public List<Skill> GetAll()
+        public List<Tag> GetAll()
         {
             return _context.Skills.ToList();
         }
 
-        public Skill GetSkill(int id)
+        public Tag GetSkill(int id)
         {
-            return _context.Skills.FirstOrDefault(c => c.SkillId == id);
+            return _context.Skills.FirstOrDefault(c => c.TagId == id);
         }
     }
 }

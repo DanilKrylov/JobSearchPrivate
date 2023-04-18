@@ -37,18 +37,18 @@ namespace JobSearch.Repositories.Repositories
         public Job GetJob(int id)
         {
             return _context.Jobs
-                .Include(c => c.MainSkill)
+                .Include(c => c.Tags)
                 .Include(c => c.Company)
                 .Include(c => c.Feadbacks)
                     .ThenInclude(c => c.Worker)
-                    .ThenInclude(c => c.MainSkill)
+                    .ThenInclude(c => c.Tag)
                 .FirstOrDefault(c => c.JobId == id);
         }
 
         public List<Job> GetJobs()
         {
             return _context.Jobs
-                .Include(c => c.MainSkill)
+                .Include(c => c.Tags)
                 .Include(c => c.Company)
                 .ToList();
         }
@@ -59,7 +59,7 @@ namespace JobSearch.Repositories.Repositories
             var user = _context.Users.First(c => c.Email == email);
             return _context.FavoriteJobs
                 .Include(c => c.Job)
-                    .ThenInclude(c => c.MainSkill)
+                    .ThenInclude(c => c.Tags)
                 .Include(c => c.Job)
                     .ThenInclude(c => c.Company)
                 .Where(c => c.WorkerUserId == user.UserId)

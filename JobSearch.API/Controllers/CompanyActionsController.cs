@@ -3,7 +3,9 @@ using JobSearch.Repositories.Interfaces;
 using JobSearch.Repositories.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace JobSearch.API.Controllers
 {
@@ -34,16 +36,16 @@ namespace JobSearch.API.Controllers
         }
 
         [HttpPost("addJob")]
-        public IActionResult AddJob(string jobName, string description, int mainSkillId)
+        public IActionResult AddJob(JobAddViewModel viewModel)
         {
             var company = (Company)_userRepository.GetUser(User.Identity.Name);
-            var skill = _skillRepository.GetSkill(mainSkillId);
+            var tags = viewModel.TagIdes.Select(c => _skillRepository.GetSkill(c)).ToList();
             var job = new Job
             {
-                MainSkill = skill,
-                Description = description,
+                Tags = tags,
+                Description = viewModel.Description,
                 Company = company,
-                JobName = jobName,
+                JobName = viewModel.JobName,
             };
             _jobRepository.AddJob(job);
 

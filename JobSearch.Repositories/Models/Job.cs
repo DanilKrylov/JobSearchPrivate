@@ -14,7 +14,7 @@ namespace JobSearch.Repositories.Models
 
         public string JobName { get; set; }
 
-        public Skill MainSkill { get; set; }
+        public List<Tag> Tags { get; set; }
 
         [StringLength(1000)]
         public string Description { get; set; }

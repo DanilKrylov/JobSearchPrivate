@@ -21,7 +21,7 @@ namespace JobSearch.API.ViewModels
         public string ResumeInfo { get; set; }
 
         [Required(ErrorMessage = "Should be not required")]
-        public int MainSkillId { get; set; }
+        public int TagId { get; set; }
 
         public Worker ToModel()
         {
@@ -32,7 +32,7 @@ namespace JobSearch.API.ViewModels
                 Password = Password,
                 Surname = Surname,
                 ResumeInfo = ResumeInfo,
-                MainSkillSkillId = MainSkillId
+                TagId = TagId
             };
         }
     }

@@ -23,6 +23,8 @@ namespace JobSearch.Repositories.Repositories
         {
             return _context.Workers
                 .Include(c => c.Feadbacks)
+                .Include(c => c.Tag)
+                .Include(c => c.Avatar)
                 .FirstOrDefault(c => c.UserId == id);
         }
 

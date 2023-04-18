@@ -81,7 +81,7 @@ namespace JobSearch.Repositories.Repositories
         public List<Worker> GetWorkers()
         {
             return _context.Workers.Include(c => c.Avatar)
-                .Include(c => c.MainSkill).ToList();
+                .Include(c => c.Tag).ToList();
         }
 
         public void UnbanCompanyOrWorker(string email)
