@@ -2,6 +2,9 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="JobSearch.Repositories.Models.Admin">
     <Position X="1" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Admin.cs</FileName>
@@ -13,7 +16,7 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAgABAAAEAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAQAAAAAAgAAAAAEAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Models\Company.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -23,23 +26,23 @@
   <Class Name="JobSearch.Repositories.Models.FavoriteJob">
     <Position X="7.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAQABAAAAAAAAAAAAAAAgAAAAACAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Models\FavoriteJob.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Job" />
       <Property Name="Worker" />
+      <Property Name="Job" />
     </ShowAsAssociation>
   </Class>
   <Class Name="JobSearch.Repositories.Models.Job">
     <Position X="6.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAQAAAAAAAgAEAAAAACAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>IAAQAAAAAAAgAAAAAAACAAAAAAAAAEAAAAAABAAAAAA=</HashCode>
       <FileName>Models\Job.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Company" />
-      <Property Name="MainSkill" />
+      <Property Name="Tags" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Feadbacks" />
@@ -48,7 +51,7 @@
   <Class Name="JobSearch.Repositories.Models.JobFeadback">
     <Position X="5.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABCAAAAAAAAAAAAAAAAAAAACAAAQAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAAQBAAAAAAAAAAAAAAAAAAAAACAAAQAAAAAQAAAAA=</HashCode>
       <FileName>Models\JobFeadback.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -56,17 +59,10 @@
       <Property Name="Job" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="JobSearch.Repositories.Models.Skill">
-    <Position X="9.5" Y="4" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAQAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Skill.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="JobSearch.Repositories.Models.User">
     <Position X="0.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAEAAAAAgAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAABAAEAAAAAgAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Models\User.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -76,15 +72,27 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAABAFAAAAACAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAACAAgAAAAAAQCAAQABAAAAAAAIAAAAAAAAAE=</HashCode>
       <FileName>Models\Worker.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="MainSkill" />
-    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Feadbacks" />
     </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="JobSearch.Repositories.Models.Tag">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAACAE=</HashCode>
+      <FileName>Models\Tag.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Jobs" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="System.Collections.Generic.List&lt;T&gt;" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

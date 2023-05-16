@@ -13,5 +13,7 @@ namespace JobSearch.Repositories.Models
         public int TagId { get; set; }
 
         public string TagName { get; set; }
+
+        public List<Job> Jobs { get; set; }
     }
 }
