@@ -30,13 +30,14 @@ namespace JobSearch.Repositories
 
         public AppContext()
         {
-            //Database.EnsureDeleted();
+            // Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=SQL8004.site4now.net;Initial Catalog=db_a961b7_gretman;User Id=db_a961b7_gretman_admin;Password=123456aA_");
+            /*optionsBuilder.UseSqlServer("Data Source=SQL8004.site4now.net;Initial Catalog=db_a961b7_gretman;User Id=db_a961b7_gretman_admin;Password=123456aA_");*/
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EMN;Trusted_Connection=True");
         }
     }
 }

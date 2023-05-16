@@ -14,6 +14,7 @@ namespace JobSearch.Repositories.Interfaces
         List<Company> GetCompanies();
 
         List<Worker> GetWorkers();
+        Worker GetWorker(string email);
 
         User GetUser(string login);
 

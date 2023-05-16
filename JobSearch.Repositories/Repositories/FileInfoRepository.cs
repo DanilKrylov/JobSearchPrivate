@@ -21,8 +21,8 @@ namespace JobSearch.Repositories.Repositories
 
         public byte[] GetCV(string email)
         {
-            var user = (Worker)_userRepository.GetUser(email);
-            return user.Avatar?.Content;
+            var user = (Worker)_userRepository.GetWorker(email);
+            return user.CV?.Content;
         }
 
         public void SetAvatar(IFormFile formFile, string email)
