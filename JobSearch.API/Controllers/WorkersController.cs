@@ -22,10 +22,10 @@ namespace JobSearch.API.Controllers
             return new JsonResult(_workerRepository.GetWorkers());
         }
 
-        [HttpGet("get/{id}")]
-        public IActionResult Get(int id)
+        [HttpGet("get/{email}")]
+        public IActionResult Get(string email)
         {
-            return new JsonResult(_workerRepository.GetWorker(id));
+            return new JsonResult(_workerRepository.GetWorker(email));
         }
 
         [HttpGet("getCV/{workerEmail}")]

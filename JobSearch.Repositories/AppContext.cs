@@ -36,7 +36,7 @@ namespace JobSearch.Repositories
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=SQL8004.site4now.net;Initial Catalog=db_a961b7_gretman;User Id=db_a961b7_gretman_admin;Password=123456aA_");
+            optionsBuilder.UseSqlServer("Data Source=SQL5110.site4now.net;Initial Catalog=db_a99c16_pylay1;User Id=db_a99c16_pylay1_admin;Password=Favorite12345");
         }
     }
 }

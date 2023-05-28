@@ -11,6 +11,6 @@ namespace JobSearch.Repositories.Interfaces
     {
         List<Worker> GetWorkers();
 
-        Worker GetWorker(int id);
+        Worker GetWorker(string email);
     }
 }

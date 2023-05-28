@@ -19,13 +19,13 @@ namespace JobSearch.Repositories.Repositories
         }
 
 
-        public Worker GetWorker(int id)
+        public Worker GetWorker(string email)
         {
             return _context.Workers
                 .Include(c => c.Feadbacks)
                 .Include(c => c.Tag)
                 .Include(c => c.Avatar)
-                .FirstOrDefault(c => c.UserId == id);
+                .FirstOrDefault(c => c.Email == email);
         }
 
         public List<Worker> GetWorkers()

@@ -46,6 +46,12 @@ namespace JobSearch.API.Controllers
             return new JsonResult(_authService.CompanyRegister(company.ToModel()));
         }
 
+        [HttpPost("workerGoogleReg")]
+        public IActionResult WorkerGoogleRegister(WorkerGoogleRegisterViewModel worker)
+        {
+            return new JsonResult(_authService.WorkerRegister(worker.ToModel()));
+        }
+
         [Authorize]
         [HttpPost("checkSignIn")]
         public IActionResult Check()
