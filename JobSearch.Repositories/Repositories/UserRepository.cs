@@ -97,5 +97,10 @@ namespace JobSearch.Repositories.Repositories
 
             _context.SaveChanges();
         }
+
+        public Worker GetWorker(string email)
+        {
+            return _context.Workers.Include(c => c.CV).FirstOrDefault(c => c.Email == email);
+        }
     }
 }
