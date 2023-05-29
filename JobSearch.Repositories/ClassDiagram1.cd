@@ -41,8 +41,8 @@
       <FileName>Models\Job.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Company" />
       <Property Name="Tags" />
+      <Property Name="Company" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Feadbacks" />

@@ -47,10 +47,23 @@ namespace JobSearch.Repositories.Repositories
 
         public List<Job> GetJobs()
         {
-            return _context.Jobs
+            var test = _context.Jobs
                 .Include(c => c.Tags)
                 .Include(c => c.Company)
-                .ToList();
+                .Select(c => new Job()
+                {
+                    Company = c.Company,
+                    JobId = c.JobId,
+                    JobName = c.JobName,
+                    Description = c.Description,
+                    Feadbacks = c.Feadbacks,
+                    Tags = c.Tags.Select(t => new Tag()
+                    {
+                        TagId = t.TagId,
+                        TagName = t.TagName,
+                    }).ToList(),
+                }).ToList();
+            return test;
         }
 
 

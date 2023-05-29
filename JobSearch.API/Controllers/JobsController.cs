@@ -17,7 +17,8 @@ namespace JobSearch.API.Controllers
         [HttpGet("get")]
         public IActionResult GetAll()
         {
-            return new JsonResult(_jobRepository.GetJobs());
+            var res =  new JsonResult(_jobRepository.GetJobs());
+            return res;
         }
 
         [HttpGet("get/{id}")]
